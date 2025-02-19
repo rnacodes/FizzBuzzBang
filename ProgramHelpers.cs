@@ -5,13 +5,11 @@ internal class ProgramHelpers
     // The combined method with steps in order should take numberFromUser and digitToCheck as arguments
     //If returns true, append funPhrase to numberTranslatedToFBB and continue to next number
     //Two variables for input number - one as string and one as number
-    public string numberFromUser = "33";
-    public string numberTranslatedToFBB = "";
 
     public static string TranslateNumber(string numberFromUser, string numberTranslated)
     {
         int userNumberConverted = int.Parse(numberFromUser);
-        //if contains 3 OR is divisible by 3, add Fizz
+       
         if (DoesContainDigit(numberFromUser, "3") || IsDivisibleByNumber(userNumberConverted, 3))
         {
             numberTranslated += "Fizz";
@@ -27,12 +25,16 @@ internal class ProgramHelpers
             numberTranslated += "Bang";
         }
 
+        if(numberTranslated == "")
+        {
+            numberTranslated = numberFromUser;
+        }
+
         return numberTranslated;
     }
 
     public static bool DoesContainDigit(string numberFromUser, string digitToCheck)
     {
-        //Make sure this stops if a match is found
         for (int i = 0; i < numberFromUser.Length; i++)
         {
             if (numberFromUser[i].ToString() == digitToCheck)
@@ -53,14 +55,3 @@ internal class ProgramHelpers
         return false;
     }
 }
-
-//Stuff
-/*
-foreach (char c in numberFromUser)
-{
-    if (c == digitToCheck)
-    {
-        return funPhrase;
-    }
-}
-*/

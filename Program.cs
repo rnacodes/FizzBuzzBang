@@ -2,18 +2,32 @@
 
     internal class Program
     {
-        static void Main()
+    static void Main()
+    {
+        string numberTranslatedIntoFBB = "";
+
+        // Code below is for iterating through 1 to 100.
+        /*
+         int numberToTranslate;
+        for (numberToTranslate = 1; numberToTranslate <= 100; numberToTranslate++)
         {
-        string numberTranslated= "";
-        
+            numberTranslatedIntoFBB = ProgramHelpers.TranslateNumber(numberToTranslate.ToString(), numberTranslatedIntoFBB);
+            Console.WriteLine(numberTranslatedIntoFBB);
+            numberTranslatedIntoFBB = "";
+        }
+        */
+
+        //The version below is for user input
+
         Console.WriteLine("Let's play a game! Enter a number between 1 and 100 " +
                     "and I will translate it into our special FizzBuzzBang language!");
         
         string numberFromUser = Console.ReadLine();
 
-        numberTranslated = ProgramHelpers.TranslateNumber(numberFromUser, numberTranslated);
+        numberTranslatedIntoFBB = ProgramHelpers.TranslateNumber(numberFromUser, numberTranslatedIntoFBB);
 
-        Console.WriteLine("Your number translated is: " + numberTranslated);
-        }
+        Console.WriteLine(numberFromUser + " translated is: " + numberTranslatedIntoFBB);
+        
     }
+}
 
