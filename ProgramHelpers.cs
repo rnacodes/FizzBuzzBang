@@ -1,26 +1,21 @@
 ﻿namespace FizzBuzzBang;
 internal class ProgramHelpers
 {
-    // If DoesContainDigit is true, add the funPhrase to the numberTranslatedToFBB string
-    // The combined method with steps in order should take numberFromUser and digitToCheck as arguments
-    //If returns true, append funPhrase to numberTranslatedToFBB and continue to next number
-    //Two variables for input number - one as string and one as number
-
     public static string TranslateNumber(string numberFromUser, string numberTranslated)
     {
-        int userNumberConverted = int.Parse(numberFromUser);
+        int userNumberAsInteger = int.Parse(numberFromUser);
        
-        if (DoesContainDigit(numberFromUser, "3") || IsDivisibleByNumber(userNumberConverted, 3))
+        if (DoesContainDigit(numberFromUser, "3") || IsDivisibleByNumber(userNumberAsInteger, 3))
         {
             numberTranslated += "Fizz";
         }
 
-        if (DoesContainDigit(numberFromUser, "5") || IsDivisibleByNumber(userNumberConverted, 5))
+        if (DoesContainDigit(numberFromUser, "5") || IsDivisibleByNumber(userNumberAsInteger, 5))
         {
             numberTranslated += "Buzz";
         }
 
-        if (DoesContainDigit(numberFromUser, "7") || IsDivisibleByNumber(userNumberConverted, 7))
+        if (DoesContainDigit(numberFromUser, "7") || IsDivisibleByNumber(userNumberAsInteger, 7))
         {
             numberTranslated += "Bang";
         }
