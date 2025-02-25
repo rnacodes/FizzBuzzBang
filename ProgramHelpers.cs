@@ -4,7 +4,7 @@ internal class ProgramHelpers
     public static string TranslateNumber(string numberFromUser, string numberTranslated)
     {
         int userNumberAsInteger = int.Parse(numberFromUser);
-       
+
         if (DoesContainDigit(numberFromUser, "3") || IsDivisibleByNumber(userNumberAsInteger, 3))
         {
             numberTranslated += "Fizz";
@@ -20,7 +20,7 @@ internal class ProgramHelpers
             numberTranslated += "Bang";
         }
 
-        if(numberTranslated == "")
+        if (numberTranslated == "")
         {
             numberTranslated = numberFromUser;
         }
@@ -49,4 +49,15 @@ internal class ProgramHelpers
         }
         return false;
     }
+
+    //Dictionary
+    public Dictionary<string, string> FunPhrases = new Dictionary<string, string>()
+        {
+        {"3","Fizz"},
+        {"5","Buzz" },
+        {"7","Bang"}
+        };
+
+
+
 }
