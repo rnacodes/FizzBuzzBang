@@ -49,15 +49,16 @@ internal class ProgramHelpers
         }
         return false;
     }
-
-    //Dictionary
-    public Dictionary<string, string> FunPhrases = new Dictionary<string, string>()
-        {
-        {"3","Fizz"},
-        {"5","Buzz" },
-        {"7","Bang"}
-        };
-
-
-
 }
+
+/* Decide whether to keep Dictionary on this page
+//Dictionary
+public Dictionary<string, string> FunPhrases = new Dictionary<string, string>()
+    {
+    {"3","Fizz"},
+    {"5","Buzz" },
+    {"7","Bang"}
+    };
+
+*/
+
