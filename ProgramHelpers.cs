@@ -1,6 +1,8 @@
 ﻿namespace FizzBuzzBang;
 internal class ProgramHelpers
 {
+    //No longer needed - now in class and simplified
+    /*
     public static string TranslateNumber(string numberFromUser, string numberTranslated)
     {
         int userNumberAsInteger = int.Parse(numberFromUser);
@@ -27,7 +29,10 @@ internal class ProgramHelpers
 
         return numberTranslated;
     }
+    */
 
+    //No  longer needed - now in class
+   /*
     public static bool DoesContainDigit(string numberFromUser, string digitToCheck)
     {
         for (int i = 0; i < numberFromUser.Length; i++)
@@ -39,7 +44,9 @@ internal class ProgramHelpers
         }
         return false;
     }
+   */
 
+    // No longer needed
     // Use variable of user entered number that has been converted to integer
     public static bool IsDivisibleByNumber(int userNumberConverted, int numberToTest)
     {
