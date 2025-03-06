@@ -68,6 +68,7 @@ public class MagicTranslator
                     numberTranslated += digitToCheck.Value;
                     break;
                 default:
+                    //numberTranslated = numberToTranslate;
                     break;
             }
 

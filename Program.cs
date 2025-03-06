@@ -32,22 +32,28 @@ internal class Program
 
                 Console.WriteLine(numberToTranslate + " translated is: " + numberTranslatedIntoFBB);
 
-                //MagicTranslator fizzBuzzTranslator = new MagicTranslator(); //No need to instantiate translator again here
-
-                /* //THIS WILL BE REUSED IN THE NEXT DIALOGUE OPTION
-                for (int numberToTranslate. = 1; numberToTranslate <= 100; numberToTranslate++)
-                {
-                    fizzBuzzTranslator.UpdateNumberFromUser(numberToTranslate.ToString());
-                    numberTranslatedIntoFBB = fizzBuzzTranslator.TranslateNumber(numberToTranslate.ToString());
-                     //(numberToTranslate.ToString(), numberTranslatedIntoFBB);
-                    Console.WriteLine(numberTranslatedIntoFBB);
-                    numberTranslatedIntoFBB = "";
-                }     
-                */
+                //MagicTranslator fizzBuzzTranslator = new MagicTranslator(); 
                 break;
             case "print":
-                Console.WriteLine("Now printing requested numbers:");
-                //Console.WriteLine("Coming soon!");
+                Console.WriteLine("Now printing requested numbers:");   //No need to instantiate translator again here
+                                                                        //Before this, I had to instantiate the number to print for each number
+                                                                        //This was cumbersome and inefficient.
+                                                                        //This was cumbersome and inefficient.
+                for (int counterNumberToTranslate = 1; counterNumberToTranslate <= 10; counterNumberToTranslate++)
+                {
+                    //string numberAsString = counterNumberToTranslate.ToString();
+
+                    string numberToPrint = fizzBuzzTranslator.TranslateNumber(counterNumberToTranslate.ToString());
+                    
+                    Console.WriteLine(numberToPrint);
+
+                    numberToPrint = "";
+
+                    counterNumberToTranslate++;
+                    //int numberToPrint = int.Parse(fizzBuzzTranslator.TranslateNumber(numberAsString));
+                }
+                
+                
                 /*
                 MagicTranslator fizzyBuzzyOneThousand = new MagicTranslator(); //No need to instantiate translator again here
 
