@@ -1,6 +1,4 @@
-﻿/*
-
-namespace FizzBuzzBang;
+﻿namespace FizzBuzzBang;
 internal class ProgramHelpers
 {
     //No longer needed - now in class and simplified
@@ -46,7 +44,7 @@ internal class ProgramHelpers
         }
         return false;
     }
-  
+   */
 
     // No longer needed
     // Use variable of user entered number that has been converted to integer
@@ -60,7 +58,7 @@ internal class ProgramHelpers
     }
 }
 
- Decide whether to keep Dictionary on this page
+/* Decide whether to keep Dictionary on this page
 //Dictionary
 public Dictionary<string, string> FunPhrases = new Dictionary<string, string>()
     {

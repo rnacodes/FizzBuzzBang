@@ -12,11 +12,12 @@ public class MagicTranslator
     //Class should not require a number to create an instantiation
     //public string NumberFromUser { get; set; }
 
+    ///////////////////////////////////////////////////////////////
+
     //FOR SIMPLIFICATION: there is no longer a separate variable for the user number as an integer
     //public int UserNumberAsInt{get; set;} 
 
-
-    //Default constructor - non-functional? Try for printing to console
+    ///////////////////////////////////////////////////////////////
 
     //SIMILAR TO THE ABOVE: FOR SIMPLIFICATION: there is no longer a separate variable for the user number as an integer
     /*  
@@ -26,6 +27,9 @@ public class MagicTranslator
          UserNumberAsInt = 0;
      }
  */
+
+    ///////////////////////////////////////////////////////////////
+
     //Removal of separate variable for the number entered as an integer
     /*
      public MagicTranslator(int numberToTranslate)
@@ -35,16 +39,18 @@ public class MagicTranslator
      }
     */
 
-    /* Deleting the need constructors to require a number
+    ///////////////////////////////////////////////////////////////
+
+    /* Deleting the constructors that require a number to instantiate - this was unnecessary
      
-    // Unneeded constructor
+    // Unneeded method that required a number during instantiation
     public void UpdateNumberFromUser (string numberToTranslate)
     {
         NumberFromUser = numberToTranslate;
         UserNumberAsInt = int.Parse(numberToTranslate);
     }
     */
-
+    ///////////////////////////////////////////////////////////////
 
     //Unneeded constructor - Constructor that requires argument
     /*
@@ -60,18 +66,20 @@ public class MagicTranslator
         string numberTranslated = "";
         int numberAsInt = int.Parse(numberToTranslate); //Only converting number into integer here because it is needed within the method.
 
+        //Switched to an if statement instead of a switch statement to make the logic easier
+        //Switch statement previously caused numbers that didn't meet the criteria to be an empty string.
+
         foreach (var digitToCheck in FunPhrases)
         {
-            switch (DoesContainDigit(numberToTranslate, digitToCheck.Key) || numberAsInt % int.Parse(digitToCheck.Key) == 0)
+            if (DoesContainDigit(numberToTranslate, digitToCheck.Key) || numberAsInt % int.Parse(digitToCheck.Key) == 0) 
             {
-                case true:
-                    numberTranslated += digitToCheck.Value;
-                    break;
-                default:
-                    //numberTranslated = numberToTranslate;
-                    break;
+               numberTranslated += digitToCheck.Value;
             }
 
+        }
+        if (numberTranslated == "")
+        {
+            numberTranslated = numberToTranslate;
         }
         return numberTranslated;
     }
@@ -89,7 +97,6 @@ public class MagicTranslator
             }
         return false;
     }
-
 
     public Dictionary<string, string> FunPhrases = new Dictionary<string, string>()
         {

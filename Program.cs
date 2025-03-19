@@ -2,6 +2,8 @@
 namespace FizzBuzzBang;
 
 internal class Program
+
+    //Took away Program Helpers because everything needed could go into the MagicTranslator class.
 {
     static void Main()
 
@@ -10,73 +12,70 @@ internal class Program
     //2. Print number 1 through 1000 in FizzBuzz
     //3. Allow user to add their own special number and phrase
     {
+        //while (true)
+        //{
+            string numberTranslatedIntoFBB;
 
-        string numberTranslatedIntoFBB; //= "";
-        string numberToTranslate; //To prevent confusion over the source of the number, the variable has been renamed.
-        MagicTranslator fizzBuzzTranslator = new MagicTranslator(); //Translator is initialized without needing a number
+            string numberToTranslate; //To prevent confusion over the source of the number, the variable has been renamed.
 
-        Console.WriteLine("Let's play a game! Choose from one of the following options:");
+            MagicTranslator fizzBuzzTranslator = new MagicTranslator(); //Translator is initialized without needing a number
 
-        Console.WriteLine("Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate) \nPrint from 1 to 1000 in FBB (Print) \nAdd your own number (Add)");
-        
-        string userActionResponse = Console.ReadLine().ToLower();
+            // Program begins here
 
-        switch(userActionResponse) 
-        {
-            case "translate":
-                Console.WriteLine("Enter a number between 1 and 1000 to translate into our special FizzBuzzBang language!");
 
-                numberToTranslate = Console.ReadLine();
+            Console.WriteLine("Let's play a game! Choose from one of the following options:");
 
-                numberTranslatedIntoFBB = fizzBuzzTranslator.TranslateNumber(numberToTranslate);
+            Console.WriteLine("Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate) \nPrint from 1 to 1000 in FBB (Print) \nAdd your own number and phrase (Add)");
 
-                Console.WriteLine(numberToTranslate + " translated is: " + numberTranslatedIntoFBB);
+            //Added test for valid user input        
 
-                //MagicTranslator fizzBuzzTranslator = new MagicTranslator(); 
-                break;
-            case "print":
-                Console.WriteLine("Now printing requested numbers:");   //No need to instantiate translator again here
-                                                                        //Before this, I had to instantiate the number to print for each number
-                                                                        //This was cumbersome and inefficient.
-                                                                        //This was cumbersome and inefficient.
-                for (int counterNumberToTranslate = 1; counterNumberToTranslate <= 10; counterNumberToTranslate++)
+            //while (true)
+            //{
+                string userActionResponse = Console.ReadLine().ToLower();
+
+                if (userActionResponse != "translate" && userActionResponse != "print" && userActionResponse != "add" || userActionResponse == null)
                 {
-                    //string numberAsString = counterNumberToTranslate.ToString();
-
-                    string numberToPrint = fizzBuzzTranslator.TranslateNumber(counterNumberToTranslate.ToString());
-                    
-                    Console.WriteLine(numberToPrint);
-
-                    numberToPrint = "";
-
-                    counterNumberToTranslate++;
-                    //int numberToPrint = int.Parse(fizzBuzzTranslator.TranslateNumber(numberAsString));
+                    Console.WriteLine("Please enter a valid response.");
+                    //break;
                 }
-                
-                
-                /*
-                MagicTranslator fizzyBuzzyOneThousand = new MagicTranslator(); //No need to instantiate translator again here
+                    switch (userActionResponse)
+                    {
+                        case "translate":
+                            Console.WriteLine("Enter a number between 1 and 1000 to translate into our special FizzBuzzBang language!");
 
-                for (int numberToTranslate = 1; numberToTranslate <= 1000; numberToTranslate++)
-                {
-                    
-                    /*
-                    fizzyBuzzyOneThousand.UpdateNumberFromUser(numberToTranslate.ToString());
-                    numberTranslatedIntoFBB = fizzyBuzzyOneThousand.TranslateNumber(numberToTranslate.ToString());
-                     //(numberToTranslate.ToString(), numberTranslatedIntoFBB);
-                    Console.WriteLine(numberTranslatedIntoFBB);
-                    numberTranslatedIntoFBB = "";
-                }     
-                */
-                break;
-            case "add":
-                Console.WriteLine("Coming soon!");
-                //Console.WriteLine("Enter your special number between 1 and 9 (excl. 3, 5, and 7");
-                break;
-            default:
-                Console.WriteLine("Please enter a valid response.");
-                break;
-        };
+                            numberToTranslate = Console.ReadLine();
+
+                            numberTranslatedIntoFBB = fizzBuzzTranslator.TranslateNumber(numberToTranslate);
+
+                            Console.WriteLine(numberToTranslate + " translated is: " + numberTranslatedIntoFBB);
+                            break;
+
+                        case "print":
+                            Console.WriteLine("Now printing requested numbers:");
+
+                            //No need to instantiate translator again here
+                            //Before this, I had to instantiate the number to print for each number
+                            //This was cumbersome and inefficient.
+                            //Renamed counter to just "counter"
+
+                            for (int counter = 1; counter <= 10; counter++)
+                            {
+                                string numberToPrint = fizzBuzzTranslator.TranslateNumber(counter.ToString());
+
+                                Console.WriteLine(numberToPrint);
+
+                                numberToPrint = "";
+
+                                counter++;
+                            }
+                            break;
+                        case "add":
+                            Console.WriteLine("Coming soon!");
+                            //Console.WriteLine("Enter your special number between 1 and 9 (excl. 3, 5, and 7");
+                            break;
+                    };
+                
+            //}
+       // }
     }
 }
-

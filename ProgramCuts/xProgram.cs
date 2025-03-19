@@ -66,3 +66,20 @@ internal class xProgram
 }
 
 */
+
+
+/*
+switch (DoesContainDigit(numberToTranslate, digitToCheck.Key) || numberAsInt % int.Parse(digitToCheck.Key) == 0)
+{
+    case true:
+        numberTranslated += digitToCheck.Value;
+        break;
+    default:   
+        break;
+}
+
+if (!(DoesContainDigit(numberToTranslate, digitToCheck.Key)) && (numberAsInt % int.Parse(digitToCheck.Key)) != 0)))
+{
+    numberTranslated = numberToTranslate;
+}    
+*/
