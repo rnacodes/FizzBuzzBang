@@ -61,7 +61,7 @@ public class MagicTranslator
     }
     */
 
-    public string TranslateNumber(string numberToTranslate)
+    public static string TranslateNumber(string numberToTranslate)
     {
         string numberTranslated = "";
         int numberAsInt = int.Parse(numberToTranslate); //Only converting number into integer here because it is needed within the method.
@@ -83,11 +83,12 @@ public class MagicTranslator
         }
         return numberTranslated;
     }
-
+    
     public static bool DoesContainDigit(string numberFromUser, string digitToCheck)//Accept key
     {
         //For each digit in number, check for the digitToCheck from Dictionary
 
+        /*
         for (int i = 0; i < numberFromUser.Length; i++)
         {
             if (numberFromUser[i].ToString() == digitToCheck)
@@ -95,6 +96,8 @@ public class MagicTranslator
                     return true;
                 }
             }
+        */
+        numberFromUser.ToString().Contains(digitToCheck);
         return false;
     }
 

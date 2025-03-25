@@ -65,8 +65,6 @@ internal class Program
                                 Console.WriteLine(numberToPrint);
 
                                 numberToPrint = "";
-
-                                counter++;
                             }
                             break;
                         case "add":
