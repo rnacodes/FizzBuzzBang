@@ -7,8 +7,6 @@ public static class MagicTranslator
     public static string TranslateNumber(this string numberToTranslate) //Turn into extension method
     {
         string numberTranslatedToFBB = "";
-        //Switched to an if statement instead of a switch statement to make the logic easier
-        //Switch statement previously caused numbers that didn't meet the criteria to be an empty string.
 
         foreach (var digitToCheck in FunPhrases)
         {
@@ -16,7 +14,6 @@ public static class MagicTranslator
             {
                numberTranslatedToFBB += digitToCheck.Value;
             }
-
         }
 
         if (numberTranslatedToFBB == "")

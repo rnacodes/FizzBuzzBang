@@ -7,13 +7,35 @@ namespace FizzBuzzBang.Extensions;
 
 public static class Extensions
 {
-    public static bool IsInputValid(this string input)
+
+    /*THIS IS AN EXAMPLE MADE DURING MEETING
+    public static bool IsInputValidNumber(this string input)
     {
-        //This method will be an extension method for whether user input contains a valid menu option
-        return true;
+        int number;
+        if (!int.TryParse(input, out number))
+        {
+            //bool isValid = input.All(char.IsDigit);
+            return isValid;
+        }
+    }
+    */
+
+    //THIS IS THE ORIGINAL
+    public static bool IsInputValidNumber(this string input)
+    {
+        bool isValid = input.All(char.IsDigit);
+        return isValid;
     }
 
-    //Kept this as its own function instead of adding to the above to make the above code more readable
+    /* NEEDS TO BE CORRECTED
+    public static bool IsValidMenuOption (this string input)
+    {
+        bool isValid = (input != "translate" && input != "print" && input != "add" || input == null);
+        return isValid;
+    }
+    */
+
+    //Kept this as its own function for experimentation
     public static bool DoesContainDigit(this string numberFromUser, string digitToCheck)//Accept key
     {
         if (numberFromUser.Contains(digitToCheck))

@@ -1,4 +1,5 @@
 ﻿using FizzBuzzBang.Classes;
+using FizzBuzzBang.Extensions;
 namespace FizzBuzzBang;
 
 
@@ -13,51 +14,58 @@ internal class Program
     {
             string numberInFBB;
 
-            string numberToTranslate; //To prevent confusion over the source of the number, the variable has been renamed.
+            string numberToTranslate;
 
             string userActionResponse = "";
 
             Console.WriteLine("Let's play a game! Choose from one of the following options:");
 
             Console.WriteLine("Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate) \nPrint from 1 to 1000 in FBB (Print) \nAdd your own number and phrase (Add)");
-
-            //Added test for valid user input        
+     
 
             while (userActionResponse != "translate" && userActionResponse != "print" && userActionResponse != "add" || userActionResponse == null)
             {
                 Console.WriteLine("Please enter a valid response.");
+
                 userActionResponse = Console.ReadLine().ToLower();
             }
-            switch (userActionResponse)
+
+        /* THIS WAS MADE DURING MEETING
+        int number = 0;
+        if (int.TryParse(userActionResponse, out number))
+        {
+            Console.WriteLine(number.SampleMethod());
+            userActionResponse = Console.ReadLine().ToLower();
+        }
+        */
+
+        switch (userActionResponse)
             {
                 case "translate":
-                    Console.WriteLine("Enter a number between 1 and 1000 to translate into our special FizzBuzzBang language!");
+                    
+                Console.WriteLine("Enter a number between 1 and 1000 to translate into our special FizzBuzzBang language!");
 
                     numberToTranslate = Console.ReadLine();
 
-                /*
-                while (int.Parse(userActionResponse) != false); {
-
+                while(!numberToTranslate.IsInputValidNumber())
+                {
+                    Console.WriteLine("Please enter a valid number.");
+                    numberToTranslate = Console.ReadLine();
                 }
-                */
-                numberInFBB = numberToTranslate.TranslateNumber();
+   
+                    numberInFBB = numberToTranslate.TranslateNumber();
 
                     Console.WriteLine(numberToTranslate + " translated is: " + numberInFBB);
-                    break;
+                    
+                break;
 
                 case "print":
                     
                 Console.WriteLine("Now printing requested numbers:");
 
-                    //No need to instantiate translator again here
-                    //Before this, I had to instantiate the number to print for each number
-                    //This was cumbersome and inefficient.
-                    //Renamed counter to just "counter"
-
-                    for (int counter = 1; counter <= 10; counter++)
+                    for (int counter = 1; counter <= 100; counter++)
                     {
-                        string numberToPrint;
-                        numberToPrint = counter.ToString().TranslateNumber();
+                        string numberToPrint = counter.ToString().TranslateNumber();
 
                         Console.WriteLine(numberToPrint);
 
