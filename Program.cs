@@ -1,5 +1,6 @@
 ﻿using FizzBuzzBang.Classes;
 using FizzBuzzBang.Extensions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace FizzBuzzBang;
 
 
@@ -20,8 +21,9 @@ internal class Program
 
             Console.WriteLine("Let's play a game! Choose from one of the following options:");
 
-            Console.WriteLine("Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate) \nPrint from 1 to 1000 in FBB (Print) \nAdd your own number and phrase (Add)");
-     
+        Console.WriteLine("Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate)");
+        Console.WriteLine("Print from 1 to 1000 in FBB (Print)");
+        Console.WriteLine("Add your own number and phras e(Add)");
 
             while (userActionResponse != "translate" && userActionResponse != "print" && userActionResponse != "add" || userActionResponse == null)
             {

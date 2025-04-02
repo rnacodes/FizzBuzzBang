@@ -6,26 +6,24 @@ using System.Threading.Tasks;
 namespace FizzBuzzBang.Extensions;
 
 public static class Extensions
-{
-
-    /*THIS IS AN EXAMPLE MADE DURING MEETING
-    public static bool IsInputValidNumber(this string input)
+{   public static bool IsInputValidNumber(this string input)
     {
-        int number;
-        if (!int.TryParse(input, out number))
+        if (int.TryParse(input, out _))
         {
-            //bool isValid = input.All(char.IsDigit);
-            return isValid;
+            return true;
         }
+        return false;
     }
-    */
+    
 
     //THIS IS THE ORIGINAL
+    /*
     public static bool IsInputValidNumber(this string input)
     {
         bool isValid = input.All(char.IsDigit);
         return isValid;
     }
+    */
 
     /* NEEDS TO BE CORRECTED
     public static bool IsValidMenuOption (this string input)
