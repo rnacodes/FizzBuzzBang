@@ -1,10 +1,11 @@
 ﻿using FizzBuzzBang.Classes;
+using static FizzBuzzBang.Classes.DialogOptions;
 using FizzBuzzBang.Extensions;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace FizzBuzzBang;
 
 
-internal class Program
+public class Program
 {
     static void Main()
 
@@ -13,24 +14,36 @@ internal class Program
     //2. Print number 1 through 1000 in FizzBuzz
     //3. Allow user to add their own special number and phrase
     {
-            string numberInFBB;
-
-            string numberToTranslate;
+            string numberInFBB;         
 
             string userActionResponse = "";
 
             Console.WriteLine("Let's play a game! Choose from one of the following options:");
 
-        Console.WriteLine("Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate)");
-        Console.WriteLine("Print from 1 to 1000 in FBB (Print)");
-        Console.WriteLine("Add your own number and phras e(Add)");
+            Console.WriteLine("Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate)");
+            Console.WriteLine("Print from 1 to 1000 in FBB (Print)");
+            Console.WriteLine("Add your own number and phrase (Add)");
 
-            while (userActionResponse != "translate" && userActionResponse != "print" && userActionResponse != "add" || userActionResponse == null)
+            //THIS IS HOW COPILOT SUGGESTED CHECKING FOR VALID INPUT
+            userActionResponse = Console.ReadLine() ?? string.Empty;
+
+            if (userActionResponse.IsOptionValid(MenuOptions))
+            {
+                MenuOptions[userActionResponse].Invoke();
+            }
+            else
+            {
+                Console.WriteLine("Invalid option.");
+            }
+
+        /* ////THIS IS HOW I SET UP GUARDRAILS FOR MENU INPUT
+            while (!IsOptionValid(userActionResponse, MenuOptions))
             {
                 Console.WriteLine("Please enter a valid response.");
 
                 userActionResponse = Console.ReadLine().ToLower();
             }
+        */
 
         /* THIS WAS MADE DURING MEETING
         int number = 0;
@@ -44,41 +57,16 @@ internal class Program
         switch (userActionResponse)
             {
                 case "translate":
-                    
-                Console.WriteLine("Enter a number between 1 and 1000 to translate into our special FizzBuzzBang language!");
-
-                    numberToTranslate = Console.ReadLine();
-
-                while(!numberToTranslate.IsInputValidNumber())
-                {
-                    Console.WriteLine("Please enter a valid number.");
-                    numberToTranslate = Console.ReadLine();
-                }
-   
-                    numberInFBB = numberToTranslate.TranslateNumber();
-
-                    Console.WriteLine(numberToTranslate + " translated is: " + numberInFBB);
-                    
+                Translate();
                 break;
 
                 case "print":
-                    
-                Console.WriteLine("Now printing requested numbers:");
-
-                    for (int counter = 1; counter <= 100; counter++)
-                    {
-                        string numberToPrint = counter.ToString().TranslateNumber();
-
-                        Console.WriteLine(numberToPrint);
-
-                        numberToPrint = "";
-                    }
-                    break;
+                Print();
+                break;
 
                 case "add":
-                    Console.WriteLine("Coming soon!");
-                    //Console.WriteLine("Enter your special number between 1 and 9 (excl. 3, 5, and 7");
-                    break;
+                Add();
+                break;
             };   
         }
     }
