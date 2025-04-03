@@ -1,7 +1,7 @@
 ﻿using FizzBuzzBang.Classes;
 using static FizzBuzzBang.Classes.DialogOptions;
-using FizzBuzzBang.Extensions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using static FizzBuzzBang.Extensions.Extensions;
+
 namespace FizzBuzzBang;
 
 
@@ -16,17 +16,69 @@ public class Program
     {
             string numberInFBB;         
 
-            string userActionResponse = "";
+            string userActionResponse;
 
             Console.WriteLine("Let's play a game! Choose from one of the following options:");
 
-            Console.WriteLine("Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate)");
-            Console.WriteLine("Print from 1 to 1000 in FBB (Print)");
-            Console.WriteLine("Add your own number and phrase (Add)");
+            Console.WriteLine("1. Translate a number 1 - 1000 into our special FizzBuzzBang Language! (Translate)");
+            Console.WriteLine("2. Print from 1 to 1000 in FBB (Print)");
+            Console.WriteLine("3. Add your own number and phrase (Add)");
 
-            //THIS IS HOW COPILOT SUGGESTED CHECKING FOR VALID INPUT
+            
             userActionResponse = Console.ReadLine() ?? string.Empty;
 
+            ////THIS IS HOW I SET UP GUARDRAILS FOR MENU INPUT
+            while (!userActionResponse.IsOptionValid())
+            {
+                Console.WriteLine("Please enter a valid response.");
+
+                userActionResponse = Console.ReadLine().ToLower();
+            }
+
+            switch (userActionResponse)
+            {
+            //case ("translate"):
+                case ("1"):
+                    Translate();
+                    break;
+
+                //case "print":
+                case ("2"):
+                    Print();
+                    break;
+
+                //case "add":
+                case ("3"):
+                    Add();
+                    break;
+            };
+
+        var asdf = DialogOptions.NewMenuOptions.Translate;
+
+        switch(asdf)
+        {
+            case DialogOptions.NewMenuOptions.Translate:
+                Console.WriteLine("Translate");
+                break;
+            case DialogOptions.NewMenuOptions.Print:
+                Console.WriteLine("Print");
+                break;
+            case DialogOptions.NewMenuOptions.Add:
+                Console.WriteLine("Add");
+                break;
+        }
+
+
+
+
+
+
+
+
+
+
+        //THIS IS HOW COPILOT SUGGESTED CHECKING FOR VALID INPUT
+        /*
             if (userActionResponse.IsOptionValid(MenuOptions))
             {
                 MenuOptions[userActionResponse].Invoke();
@@ -35,38 +87,6 @@ public class Program
             {
                 Console.WriteLine("Invalid option.");
             }
-
-        /* ////THIS IS HOW I SET UP GUARDRAILS FOR MENU INPUT
-            while (!IsOptionValid(userActionResponse, MenuOptions))
-            {
-                Console.WriteLine("Please enter a valid response.");
-
-                userActionResponse = Console.ReadLine().ToLower();
-            }
         */
-
-        /* THIS WAS MADE DURING MEETING
-        int number = 0;
-        if (int.TryParse(userActionResponse, out number))
-        {
-            Console.WriteLine(number.SampleMethod());
-            userActionResponse = Console.ReadLine().ToLower();
-        }
-        */
-
-        switch (userActionResponse)
-            {
-                case "translate":
-                Translate();
-                break;
-
-                case "print":
-                Print();
-                break;
-
-                case "add":
-                Add();
-                break;
-            };   
-        }
+    }
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using static FizzBuzzBang.Extensions.Extensions;
 
 namespace FizzBuzzBang.Classes
 {
@@ -10,7 +6,7 @@ namespace FizzBuzzBang.Classes
     {
         public static void Translate()
         {
-            string userInputToTranslate = "";
+            string userInputToTranslate;
             
             Console.WriteLine("Enter a number between 1 and 1000 to translate into our special FizzBuzzBang language!");
 
@@ -33,11 +29,11 @@ namespace FizzBuzzBang.Classes
 
             for (int counter = 1; counter <= 100; counter++)
             {
-                string numberToPrint = counter.ToString().TranslateNumber();
+                string translatedInputToPrint = counter.ToString().TranslateNumber();
 
-                Console.WriteLine(numberToPrint);
+                Console.WriteLine(translatedInputToPrint);
 
-                numberToPrint = "";
+                translatedInputToPrint = "";
             }
             
         }
@@ -48,28 +44,18 @@ namespace FizzBuzzBang.Classes
             //Console.WriteLine("Enter your special number between 1 and 9 (excl. 3, 5, and 7");
         }
 
-        public static bool IsOptionValid(this string input, Dictionary<string, Action> options)
-        {
-            foreach (var option in options)
-            {
-                if (options.ContainsKey(input))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public static bool IsInputValidNumber(this string input)
-        {
-            return int.TryParse(input, out int number);
-        }
-
         public static Dictionary<string, Action> MenuOptions = new Dictionary<string, Action>()
             {
-                {"translate", Translate},
-                {"print", Print},
-                {"add", Add}
-            };
+                {"1", Translate},
+                {"2", Print},
+                {"3", Add}
+            };                          
+
+        public enum NewMenuOptions
+        {
+            Translate = 1,
+            Print = 2,
+            Add = 3
+        }
     }
 }
